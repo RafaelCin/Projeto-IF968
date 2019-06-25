@@ -21,4 +21,6 @@ Matricular na academia @SmartFat +Emagrecer
 (A) 2209200 Entregar um projeto. @Faculdade +IF986
 153 Lanchar 
 (F) 16052017 2200 Ver episódio de Shingeki No Kyojin. #Casa +Otaku
- 22032000  oi eu sou goku   +teste
+(a) 22062017 2513 Viajar.
+(v) 29022017 Pagar o Netflix +NuncaMaisEuVouDormir
+Estudar mySQL
