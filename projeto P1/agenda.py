@@ -258,16 +258,16 @@ def listar():
   hora = ordenarPorDataHora(pri)
   cont = 1
   for elemento in hora:
-    if elemento[1][2] == "(A)":
-      print(str(cont) + ' ' + str(elemento) + BOLD + RED)
-    elif elemento[1][2] == "(B)":
-      print(str(cont) + ' ' + str(elemento) + BLUE)
-    elif elemento[1][2] == "(C)":
-      print(str(cont) + ' ' + str(elemento) + YELLOW)
-    elif elemento[1][2] == "(D)":
-      print(str(cont) + ' ' + str(elemento) + GREEN)
+    if elemento[1][2] == "(A)" or elemento[1][2] == "(a)":
+      print(BOLD + RED + str(cont) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
+    elif elemento[1][2] == "(B)" or elemento[1][2] == "(b)":
+      print(BLUE + str(cont) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
+    elif elemento[1][2] == "(C)" or elemento[1][2] == "(c)":
+      print(YELLOW + str(cont) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
+    elif elemento[1][2] == "(D)" or elemento[1][2] == "(d)":
+      print(GREEN + str(cont) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
     else:
-      print(str(cont) + ' ' + str(elemento))
+      print(RESET + str(cont) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
     cont += 1
   return hora
 
@@ -360,6 +360,8 @@ def ordenarComDataHora(lista):
 
 # funcao que retorna True caso a data1 (data do primeiro parametro) seja maior
 def maiorData(data1,data2):
+  data1 = str(data1)
+  data2 = str(data2)
   dia1 = [data1[0] + data1[1]]
   dia2 = [data2[0] + data2[0]]
   mes1 = [data1[2] + data1[3]]
@@ -510,16 +512,16 @@ def processarComandos(comandos) :
   elif comandos[1] == REMOVER:
     numeroRemov = comandos[2]
     linhaTirada = remover(numeroRemov)
-    return linhaTirada + ' foi removida'   
+    return linhaTirada   
   elif comandos[1] == FAZER:
     num = comandos[2]
     linhaFeita = fazer(num)
-    return linhaFeita + ' foi removida e passada pra o done' 
+    return linhaFeita 
   elif comandos[1] == PRIORIZAR:
     numero = comandos[2]
     pri = comandos[3]
     linhaAlterada = priorizar(numero,pri)  
-    return linhaAlterada + ' foi alterada'  
+    return linhaAlterada
   else :
     print("Comando inválido.")
     
