@@ -351,6 +351,7 @@ def ordenarComDataHora(lista):
           aux = lista[cont]
           lista[cont] = lista[cont + 1]
           lista[cont + 1] = aux
+      cont += 1
   return lista
 
         
