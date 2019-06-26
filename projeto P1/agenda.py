@@ -200,7 +200,7 @@ def soDigitos(numero) :
 # tudo que vier depois será considerado parte da descrição.  
 def organizar(linhas):
   itens = []
-
+  cont = 1
   for l in linhas:
     data = '' 
     hora = ''
@@ -237,7 +237,8 @@ def organizar(linhas):
         listaDesc.append(elemento)
     for palavra in listaDesc:
         desc += palavra + ' '
-    itens.append((desc, (data, hora, pri, contexto, projeto)))
+    itens.append((desc,(data, hora, pri, contexto, projeto),cont))
+    cont += 1
 
   return itens
 
@@ -259,15 +260,15 @@ def listar():
   cont = 1
   for elemento in hora:
     if elemento[1][2] == "(A)" or elemento[1][2] == "(a)":
-      print(BOLD + RED + str(cont) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
+      print(BOLD + RED + str(elemento[2]) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
     elif elemento[1][2] == "(B)" or elemento[1][2] == "(b)":
-      print(BLUE + str(cont) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
+      print(BLUE + str(elemento[2]) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
     elif elemento[1][2] == "(C)" or elemento[1][2] == "(c)":
-      print(YELLOW + str(cont) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
+      print(YELLOW + str(elemento[2]) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
     elif elemento[1][2] == "(D)" or elemento[1][2] == "(d)":
-      print(GREEN + str(cont) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
+      print(GREEN + str(elemento[2]) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
     else:
-      print(RESET + str(cont) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
+      print(RESET + str(elemento[2]) + ' ' + str(elemento[1][2]) + ' ' + str(elemento[1][0]) + ' ' + str(elemento[1][1]) + ' ' + str(elemento[0]) + str(elemento[1][3]) + ' ' + str(elemento[1][4]))
     cont += 1
   return hora
 
